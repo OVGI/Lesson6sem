@@ -12,4 +12,7 @@ for (int i = 0; i < 3; i++)  // внешний  строки
     }
     Console.WriteLine();
 }
-
+foreach (var item in array)
+{
+    Console.Write($"{item} ");
+}
