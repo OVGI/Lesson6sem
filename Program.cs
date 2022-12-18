@@ -1,23 +1,15 @@
-﻿// Рекурсия
+﻿
+// Двойной массив
 
-// int a;
-// Console.Write($"Введите число: ");
-// int.TryParse(Console.ReadLine()!, out a);
+int[,] array = new int[3, 4];
 
-Recurs(0);
-
-for (int i = 0; i < 10; i++)
-    Console.WriteLine($"{i} Запуск функции");
-
-
-void Recurs(int i)
+for (int i = 0; i < 3; i++)  // внешний  строки
 {
-    Console.WriteLine($"{i} Запуск функции");
-    i++;
-    if (i < 10)
+    for (int j = 0; j < 4; j++) // внутренний столбцы / элементы
     {
-        Recurs(i);
-        Recurs(i + 1);
+        array[i, j] = new Random().Next(10);
+        Console.Write($"{array[i, j]} ");
     }
+    Console.WriteLine();
 }
 
