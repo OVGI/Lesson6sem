@@ -1,33 +1,21 @@
-﻿/* Напишите программу , которая перевернет  массив */
-// Двойной массив
+﻿/* Задача 40. Напишите программу , которая принимает на вход три числа  
+и проверяет , может ли существовать треугольник со сторонами такой длины */
 
-int[,] array = new int[5, 4];
+Console.Write($"Введите 3 стороны треугольника: ");
+string[] lines = Console.ReadLine()!.Split(' ');
+int[] nums = new int[lines.Length];
 
-for (int i = 0; i < array.GetLength(0); i++)
+for (int i = 0; i < lines.Length; i++)
+    int.TryParse(lines[i], out nums[i]);
+if (IsTriang(nums[0], nums[1], nums[2]))
+    Console.Write($"Существует");
+else
+    Console.Write($"Не существует");
+
+
+bool IsTriang(int a, int b, int c)
 {
-    for (int j = 0; j < array.GetLength(1); j++)
-    {
-        array[i, j] = new Random().Next(10);
-        Console.Write($"{array[i, j]} ");
-    }
-    Console.WriteLine();
-}
-
-for (int n = 0; n < array.GetLength(0) * array.GetLength(1) / 2; n++)
-{
-    int i = n / array.GetLength(1);
-    int j = n - i * array.GetLength(1);
-
-    (array[i, j], array[array.GetLength(0) - i - 1, array.GetLength(1) - j - 1]) =
-     (array[array.GetLength(0) - i - 1, array.GetLength(1) - j - 1], array[i, j]);
-}
-Console.WriteLine();
-
-for (int i = 0; i < array.GetLength(0); i++)
-{
-    for (int j = 0; j < array.GetLength(1); j++)
-        Console.Write($"{array[i, j]} ");
-    Console.WriteLine();
+    return (a < b + c) && (b < a + c) && (c < a + b);
 }
 
 
