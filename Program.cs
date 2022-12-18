@@ -1,18 +1,19 @@
-﻿
+﻿/* Задача 39. Напишите программу , котроая перевернет одномерный массив */
 // Двойной массив
 
-int[,] array = new int[3, 4];
+int[] array = new int[5];
 
-for (int i = 0; i < 3; i++)  // внешний  строки
+for (int i = 0; i < array.Length; i++)
 {
-    for (int j = 0; j < 4; j++) // внутренний столбцы / элементы
-    {
-        array[i, j] = new Random().Next(10);
-        Console.Write($"{array[i, j]} ");
-    }
-    Console.WriteLine();
+    array[i] = new Random().Next(10);
+    Console.Write($"{array[i]} ");
 }
-foreach (var item in array)
+
+for (int i = 0; i < array.Length / 2; i++)
 {
-    Console.Write($"{item} ");
+    (array[i], array[array.Length - i - 1]) = (array[array.Length - i - 1], array[i]);
 }
+Console.WriteLine();
+
+for (int i = 0; i < array.Length; i++)
+    Console.Write($"{array[i]} ");
