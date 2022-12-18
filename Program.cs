@@ -12,10 +12,26 @@ for (int i = 0; i < array.GetLength(0); i++)
     }
     Console.WriteLine();
 }
-
 for (int i = 0; i < array.GetLength(0); i++)
+{
     for (int j = 0; j < array.GetLength(1) / 2; j++)
+    {
         (array[i, j], array[i, array.GetLength(1) - j - 1]) = (array[i, array.GetLength(1) - j - 1], array[i, j]);
+    }
+}
+
+
+for (int i = 0; i < array.GetLength(0) / 2; i++)
+{
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+        (array[array.GetLength(0) - i - 1, j], array[i, j]) = (array[i, j], array[array.GetLength(0) - i - 1, j]);
+    }
+}
+
+
+
+// (array[i, j], array[i, array.GetLength(1) - j - 1]) = (array[i, array.GetLength(1) - j - 1], array[i, j]);
 
 Console.WriteLine();
 
